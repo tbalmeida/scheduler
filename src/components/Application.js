@@ -44,6 +44,7 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        onAdd={() => console.log('adding new interview')}
       />
     );
   });

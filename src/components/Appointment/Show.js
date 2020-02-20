@@ -7,6 +7,7 @@ export default function Empty(props) {
 // console.log(props)
   return (
     <main className="appointment__card appointment__card--show">
+      
       <section className="appointment__card-left">
         <h2 className="text--regular">{props.name}</h2>
         <section className="interviewer">
@@ -14,6 +15,7 @@ export default function Empty(props) {
           <h3 className="text--regular">{props.interviewer.name}</h3>
         </section>
       </section>
+
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <img
@@ -29,6 +31,7 @@ export default function Empty(props) {
             onClick={props.onDelete}
           />
         </section>
+        
       </section>
     </main>
   );
