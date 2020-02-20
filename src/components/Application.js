@@ -57,16 +57,18 @@ export default function Application(props) {
     days: [],
     appointments: {}
   });
-  
-  const setDay = day => setState({ ...state, day });
-  
-  useEffect(() => {
-    axios.get("http://localhost:8001/api/days")
-    .then((res) => {
-      setState( {...state, days: res.data}); 
+
+  const setDay = day => setState(prev => ({ ...prev, day }));
+
+   useEffect(() => {
+    const pmsDays = axios.get("/api/days");
+    const pmsAppt = axios.get("/api/appointments");
+    Promise.all([pmsDays, pmsAppt])
+    .then((all) => {
+      setState(prev => ({ day: state.day, days: all[0].data, appointments: all[1].data}));
     });
   }, []);
-  
+
   return (
     <main className="layout">
       <section className="sidebar">
