@@ -4,7 +4,7 @@ import React from "react";
 // import { act } from "@testing-library/react";
 
 export default function Empty(props) {
-// console.log(props)
+
   return (
     <main className="appointment__card appointment__card--show">
       
@@ -28,7 +28,7 @@ export default function Empty(props) {
             className="appointment__actions-button"
             src="images/trash.png"
             alt="Delete"
-            onClick={props.onDelete}
+            onClick={() => props.onDelete(props.id)}
           />
         </section>
         

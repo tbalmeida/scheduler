@@ -30,8 +30,19 @@ export default function Application(props) {
     return Promise.resolve( axios.put(`/api/appointments/${id}`, appointment)
       .then(() => setState( {...state, appointments} ))
     );
-     
   }
+
+function cancelInterview(id) {
+  console.log("Application.js_cancelInterview", id)
+
+  // delete on memory
+  const appointment = { ...state.appointments[id], interview: null };
+  const appointments = { ...state.appointments, [id]: appointment };
+
+  // delete on actual DB
+  return Promise.resolve( axios.delete(`/api/appointments/${id}` )
+    .then( ( () => setState({...state, appointments}))) )
+}
 
   const setDay = day => setState(prev => ({ ...prev, day }));
 
@@ -39,8 +50,8 @@ export default function Application(props) {
     const pmsDays = axios.get("/api/days");
     const pmsAppt = axios.get("/api/appointments");
     const pmInter = axios.get("/api/interviewers");
+    
     Promise.all([pmsDays, pmsAppt, pmInter]).then(all => {
-      // setState(() => (
       setState(() => ({
         day: state.day,
         days: all[0].data,
@@ -48,10 +59,12 @@ export default function Application(props) {
         interviewers: all[2].data
       }));
     });
+
   }, []);
 
   const appointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersByDay(state, state.day);
+
   const listAppointments = appointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
 
@@ -61,9 +74,10 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
-        onAdd={() => console.log("adding new interview")}
+        // onAdd={() => console.log("adding new interview")}
         bookInterview={bookInterview}
         interviewers={interviewers}
+        cancelInterview={cancelInterview}
       />
     );
   });
