@@ -1,7 +1,4 @@
 import React from "react";
-// import InterviewerList from "components/InterviewerList";
-// import InterviewerListItem from "components/InterviewerListItem";
-// import { act } from "@testing-library/react";
 
 export default function Empty(props) {
 
@@ -22,7 +19,7 @@ export default function Empty(props) {
             className="appointment__actions-button"
             src="images/edit.png"
             alt="Edit"
-            onClick={props.onEdit}
+            onClick={() => props.onEdit()}
           />
           <img
             className="appointment__actions-button"
