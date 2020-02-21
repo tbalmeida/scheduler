@@ -13,7 +13,6 @@ export default function Form(props) {
       return;
     }
     setError("");
-    props.onSave(name, interviewer);
   }
 
   function reset() {
@@ -53,9 +52,7 @@ export default function Form(props) {
           <Button onClick={cancel} danger>
             Cancel
           </Button>
-          <Button onClick={validate} confirm>
-            Save
-          </Button>
+          <Button onClick={() => props.onSave(name, interviewer)} confirm> Save </Button>
         </section>
       </section>
     </main>
