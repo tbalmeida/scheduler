@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
@@ -45,7 +45,6 @@ export default function useApplicationData() {
     const spotsRemaining = function () {
       let spots = 0;
       for (let day in state.days) {
-        //select the day we currently have selected on screen from the state
         if ((state.days[day].name === state.day)) {
           for (let id of state.days[day].appointments) {
             if (state.appointments[id].interview === null) {
@@ -54,14 +53,7 @@ export default function useApplicationData() {
           }
         }
       }
-      return state.days.map((day) => {
-        if (day.name !== state.day) {
-          return day
-        }
-        return {
-          ...day, spots
-        }
-      })
+      return state.days.map((day) => { return day.name !== state.day ? day : { ...day, spots }})
     }
 
     switch (action.type) {
