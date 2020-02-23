@@ -6,6 +6,7 @@ export default function useApplicationData() {
   const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
   const SET_INTERVIEW = "SET_INTERVIEW";
   const CANCEL_INTERVIEW = "CANCEL_INTERVIEW";
+  const UPDATE_SPOTS = "UPDATE_SPOTS";
 
   function bookInterview(id, interview) {
     const appointment = {
@@ -20,6 +21,8 @@ export default function useApplicationData() {
       axios
         .put(`/api/appointments/${id}`, appointment)
         .then(() => dispatch({ type: SET_INTERVIEW, interview: appointments }))
+        .then ( () => dispatch({ type: UPDATE_SPOTS })
+      )
     );
   }
 
@@ -32,13 +35,35 @@ export default function useApplicationData() {
     return Promise.resolve(
       axios
         .delete(`/api/appointments/${id}`)
-        .then(() =>
-          dispatch({ type: CANCEL_INTERVIEW, interview: appointments })
-        )
+        .then(() => dispatch({ type: CANCEL_INTERVIEW, interview: appointments }))
+        .then (() => dispatch({ type: UPDATE_SPOTS }))
     );
   }
 
   function reducer(state, action) {
+
+    const spotsRemaining = function () {
+      let spots = 0;
+      for (let day in state.days) {
+        //select the day we currently have selected on screen from the state
+        if ((state.days[day].name === state.day)) {
+          for (let id of state.days[day].appointments) {
+            if (state.appointments[id].interview === null) {
+              spots++
+            }
+          }
+        }
+      }
+      return state.days.map((day) => {
+        if (day.name !== state.day) {
+          return day
+        }
+        return {
+          ...day, spots
+        }
+      })
+    }
+
     switch (action.type) {
       case SET_DAY:
         return { ...state, day: action.value };
@@ -54,6 +79,9 @@ export default function useApplicationData() {
       }
       case CANCEL_INTERVIEW: {
         return { ...state, appointments: action.interview };
+      }
+      case UPDATE_SPOTS: {
+        return { ...state, days: spotsRemaining() }
       }
       default:
         throw new Error(
