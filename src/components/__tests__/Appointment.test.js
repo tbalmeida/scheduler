@@ -11,7 +11,7 @@ afterEach(cleanup);
 
   // A test that renders a React Component
 describe("Appointment", () => {
-  it("Renders without crashing", () => {
-    render(<Appointment />);
-  });
+  // it("Renders without crashing", () => {
+  //   render(<Appointment />);
+  // });
 });
