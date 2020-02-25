@@ -54,9 +54,11 @@ const fixtures = {
 };
 
 const GET_STATUS_CODE = 200,
-  GET_STATUS_MESSAGE = "Ok",
+  GET_STATUS_MSG = "Ok",
   PUT_STATUS_CODE = 204,
-  PUT_STATUS_MESSAGE = "No Content";
+  PUT_STATUS_MSG = "No Content",
+  DEL_STATUS_CODE = 200,
+  DEL_STATUS_MSG = "Ok";
 
 export default {
   defaults: { baseURL: "" },
@@ -65,7 +67,7 @@ export default {
     if (url === "/api/days") {
       return Promise.resolve({
         status: GET_STATUS_CODE,
-        statusText: GET_STATUS_MESSAGE,
+        statusText: GET_STATUS_MSG,
         data: fixtures.days
       });
     }
@@ -74,7 +76,7 @@ export default {
       /* Resolve appointments data */
       return Promise.resolve({
         status: GET_STATUS_CODE,
-        statusText: GET_STATUS_MESSAGE,
+        statusText: GET_STATUS_MSG,
         data: fixtures.appointments
       });
     }
@@ -83,7 +85,7 @@ export default {
       /* Resolve interviewers data */
       return Promise.resolve({
         status: GET_STATUS_CODE,
-        statusText: GET_STATUS_MESSAGE,
+        statusText: GET_STATUS_MSG,
         data: fixtures.interviewers
       });
     }
@@ -92,7 +94,15 @@ export default {
   put: jest.fn(url => {
       return Promise.resolve({
         status: PUT_STATUS_CODE,
-        statusText: PUT_STATUS_MESSAGE
+        statusText: PUT_STATUS_MSG
       });
+  }),
+
+  delete: jest.fn(url => {
+    return Promise.resolve({
+      status: DEL_STATUS_CODE,
+      statusText: DEL_STATUS_MSG
+    });
   })
+
 }
