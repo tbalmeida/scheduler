@@ -22,9 +22,5 @@ describe('Interviews', () => {
     cy.get('[alt="Add"]')
     .first()
     .click();
-
-    // cy.get('')
-    // save the data
-    // cy.get('.button--confirm')
   });
 });
