@@ -1,5 +1,3 @@
-import { wait } from "@testing-library/react";
-
 describe("Navigation", () => {
   it("should visit root", () => {
     cy.visit("/");
