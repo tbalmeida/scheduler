@@ -53,12 +53,19 @@ const fixtures = {
   }
 };
 
+const GET_STATUS_CODE = 200,
+  GET_STATUS_MESSAGE = "Ok",
+  PUT_STATUS_CODE = 204,
+  PUT_STATUS_MESSAGE = "No Content";
+
 export default {
+  defaults: { baseURL: "" },
+
   get: jest.fn(url => {
     if (url === "/api/days") {
       return Promise.resolve({
-        status: 200,
-        statusText: "OK",
+        status: GET_STATUS_CODE,
+        statusText: GET_STATUS_MESSAGE,
         data: fixtures.days
       });
     }
@@ -66,8 +73,8 @@ export default {
     if (url === "/api/appointments") {
       /* Resolve appointments data */
       return Promise.resolve({
-        status: 200,
-        statusText: "OK",
+        status: GET_STATUS_CODE,
+        statusText: GET_STATUS_MESSAGE,
         data: fixtures.appointments
       });
     }
@@ -75,11 +82,17 @@ export default {
     if (url === "/api/interviewers") {
       /* Resolve interviewers data */
       return Promise.resolve({
-        status: 200,
-        statusText: "OK",
+        status: GET_STATUS_CODE,
+        statusText: GET_STATUS_MESSAGE,
         data: fixtures.interviewers
       });
     }
+  }),
+
+  put: jest.fn(url => {
+      return Promise.resolve({
+        status: PUT_STATUS_CODE,
+        statusText: PUT_STATUS_MESSAGE
+      });
   })
 }
-

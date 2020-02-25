@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
@@ -49,7 +49,7 @@ export default function Appointment(props) {
   }
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
 
       {mode === CREATE && (
@@ -63,7 +63,6 @@ export default function Appointment(props) {
         <Show
           name={props.interview.student}
           interviewer={props.interview.interviewer}
-          onEdit={()=> window.alert("hi")}
           interviewers={props.interviewers}
           onDelete={() => transition(CONFIRM)}
           id={props.id}
