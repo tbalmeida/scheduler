@@ -58,7 +58,7 @@ npm run cypress
 !["Cypress - all tests"](https://github.com/tbalmeida/scheduler/blob/master/docs/06-cypress-full-test.png)
 
 - Cypress - cancel interview detail
-!["Cypress - cancel interview detail"](https://github.com/tbalmeida/scheduler/blob/master/docs/07-cypress-cancel-interview-detail.png)
+!["Cypress - cancel interview detail"](https://github.com/tbalmeida/scheduler/blob/master/docs/07-cypress-cancel-interview-detailj.png)
 
 - Jest - Test Coverage report
 !["Jest - Test Coverage report"](https://github.com/tbalmeida/scheduler/blob/master/docs/08-jest-test-coverage.png)
