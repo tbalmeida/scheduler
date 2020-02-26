@@ -38,13 +38,27 @@ npm run cypress
 ```
 
 ## Screenshots
-["Scheduler - Initial page"] (https://github.com/tbalmeida/scheduler/blob/master/docs/01-scheduler-main.png)
-["Scheduler - editing an interview"] (https://github.com/tbalmeida/scheduler/blob/master/docs/02-scheduler-editing.png)
-["Scheduler - deleting an interview"] (https://github.com/tbalmeida/scheduler/blob/master/docs/03-scheduler-deleting.png)
+- Scheduler - Initial page
+!["Scheduler - Initial page"](https://github.com/tbalmeida/scheduler/blob/master/docs/01-scheduler-main.png)
+
+- Scheduler - editing an interview
+!["Scheduler - editing an interview"](https://github.com/tbalmeida/scheduler/blob/master/docs/02-scheduler-editing.png)
+
+- Scheduler - deleting an interview
+!["Scheduler - deleting an interview"](https://github.com/tbalmeida/scheduler/blob/master/docs/03-scheduler-deleting.png)
 
 ### Development/Tests
-["Storybook - initial page"] (https://github.com/tbalmeida/scheduler/blob/master/docs/04-storybook-main.png)
-["Storybook - confirmation"] (https://github.com/tbalmeida/scheduler/blob/master/docs/05-storybook-confirmation.png)
-["Cypress - all tests"] (https://github.com/tbalmeida/scheduler/blob/master/docs/06-cypress-full-test.png)
-["Cypress - cancel interview detail"] (https://github.com/tbalmeida/scheduler/blob/master/docs/07-cypress-cancel-interview.png)
-["Jest - Test Coverage report"] (https://github.com/tbalmeida/scheduler/blob/master/docs/08-jext-test-coverage.png)
+- Storybook - initial page
+!["Storybook - initial page"](https://github.com/tbalmeida/scheduler/blob/master/docs/04-storybook-main.png)
+
+- Storybook - confirmation
+!["Storybook - confirmation"](https://github.com/tbalmeida/scheduler/blob/master/docs/05-storybook-confirmation.png)
+
+- Cypress - all tests
+!["Cypress - all tests"](https://github.com/tbalmeida/scheduler/blob/master/docs/06-cypress-full-test.png)
+
+- Cypress - cancel interview detail
+!["Cypress - cancel interview detail"](https://github.com/tbalmeida/scheduler/blob/master/docs/07-cypress-cancel-interview.png)
+
+- Jest - Test Coverage report
+!["Jest - Test Coverage report"](https://github.com/tbalmeida/scheduler/blob/master/docs/08-jext-test-coverage.png)
