@@ -81,14 +81,14 @@ export default function Appointment(props) {
       )}
 
       {mode === EMPTY && ( <Empty onAdd={() => { transition(CREATE); }} /> )}
-      {mode === CONFIRM && ( <Confirm message="Are you sure you would like to delete?" onConfirm={deleteInterview} onCancel={() => back()} /> )}
+      {mode === CONFIRM && ( <Confirm message="Are you sure you would like to delete?" onConfirm={deleteInterview} onCancel={back} /> )}
       {mode === SAVING && <Status message="Saving" />}
       {mode === DELETING && <Status message="Deleting" />}
       {mode === ERROR_DELETE && (
-        <Error message="Could not delete appointment" onClose={() => back()} />
+        <Error message="Could not delete appointment" onClose={back} />
       )}
       {mode === ERROR_SAVE && (
-        <Error message="Could not save appointment" onClose={() => back()} />
+        <Error message="Could not save appointment" onClose={back} />
       )}
     </article>
   );
